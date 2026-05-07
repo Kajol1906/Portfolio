@@ -82,9 +82,19 @@ export default function App() {
   ];
 
   const marqueeText = [
-    'Full Stack Developer focused on Spring Boot, Java, Python, and scalable backend systems.',
-    'Real-time systems, REST APIs, database design, and cloud-ready architecture.',
+    'Java',
+    'Spring Boot',
+    'Python',
+    'REST API',
+    'MySQL & MongoDB',
+    'PostgreSQL',
+    'Redis',
+    'TypeScript',
+    'React'
   ];
+
+  // Repeat the skills enough times to fill the marquee line
+  const marqueeSkills = Array(6).fill(marqueeText).flat();
 
   const timeline = [
     {
@@ -211,89 +221,73 @@ export default function App() {
         <div className="pt-4 pb-2">
           <div className="max-w-7xl mx-auto rounded-2xl border overflow-hidden"
                style={{ borderColor: 'rgba(255,255,255,0.08)', backgroundColor: '#0F1729' }}>
-            <div className="marquee-row" style={{ padding: '1rem 0' }}>
-              <div className="marquee-track marquee-left">
-                <span className="marquee-item">{marqueeText[0]}</span>
-                <span className="marquee-item" aria-hidden="true">{marqueeText[1]}</span>
-                <span className="marquee-item" aria-hidden="true">{marqueeText[0]}</span>
-                <span className="marquee-item" aria-hidden="true">{marqueeText[1]}</span>
-                <span className="marquee-item" aria-hidden="true">{marqueeText[0]}</span>
-                <span className="marquee-item" aria-hidden="true">{marqueeText[1]}</span>
+            <div className="marquee-row" style={{ padding: '1rem 0', overflow: 'hidden' }}>
+              <div
+                className="marquee-track marquee-left"
+                style={{
+                  display: 'flex',
+                  gap: '2.5rem',
+                  fontWeight: 600,
+                  fontSize: '1.1rem',
+                  letterSpacing: '0.1em',
+                  color: '#2DD4BF',
+                  whiteSpace: 'nowrap',
+                  animation: 'marquee 18s linear infinite',
+                  textTransform: 'none' // Ensure normal case
+                }}
+              >
+                {marqueeSkills.map((skill, idx) => (
+                  <span className="marquee-item" key={idx}>{skill}</span>
+                ))}
               </div>
             </div>
+          // Add marquee animation CSS to the file if not already present
+          // You may need to add this to your global CSS (e.g., theme.css or index.css):
+
           </div>
         </div>
       </section>
 
       {/* About & Timeline Section */}
-      <section className="px-6 pt-4 pb-8 flex items-center justify-center">
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Left: Intro + Highlights */}
-          <div className="relative overflow-hidden rounded-2xl border px-8 py-10"
-               style={{ borderColor: 'rgba(255,255,255,0.06)', backgroundColor: '#0F1729' }}>
-            <div className="inline-flex rounded-full border px-4 py-1 text-sm tracking-[0.2em] uppercase"
-                 style={{ borderColor: 'rgba(45, 212, 191, 0.25)', color: '#2DD4BF' }}>
-              About Me
-            </div>
-            <h2 className="text-4xl md:text-5xl mt-4" style={{ color: '#E2E8F0' }}>
-              Strategic systems, measurable impact.
+      <section className="px-6 pt-4 pb-8 flex items-center justify-center" style={{ marginTop: '4.5rem' }}>
+        <div className="max-w-6xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-20 px-4 items-start">
+          {/* Left: About Me Content */}
+          <div>
+            <div className="mb-2 text-xs font-mono tracking-widest" style={{ color: 'rgb(45, 212, 191)' }}>// About me</div>
+            <h1 className="text-4xl font-bold mb-3" style={{ color: 'rgb(45, 212, 191)' }}>
+              I'm a student building systems.
+            </h1>
+            <h2 className="text-base font-medium mb-4" style={{ color: '#94A3B8', maxWidth: '900px' }}>
+              I am a B.Tech Computer Science student at Parul University, passionate about backend development, Java, and Spring Boot. I love solving complex problems, have solved 500+ DSA challenges, and enjoy building scalable, reliable systems. Always eager to learn and collaborate on impactful projects.
             </h2>
-
-            <p className="mt-4 text-lg text-muted-foreground" style={{ color: '#94A3B8' }}>
-              I build backend-first applications that scale and delight users. My work blends pragmatic
-              engineering with product thinking — from designing streaming pipelines to building
-              user-friendly administration tools. I focus on measurable outcomes: reliability, performance,
-              and maintainability.
+            <ul className="mb-4 list-disc pl-6 text-sm max-w-3xl" style={{ color: '#CBD5E1' }}>
+              <li>Solved 500+ Data Structures and Algorithms (DSA) problems across coding platforms.</li>
+              <li>Selected for State Level Regional Round in OpenAI Academy, NxtWave, and IndiaAI Hackathon.</li>
+              <li>Finalist in Parul University Hackathon, advancing from 2,000+ participants.</li>
+              <li>Selected in GSSoC 2026 for Open Source & AI Agent track.</li>
+            </ul>
+            <p className="text-sm max-w-3xl" style={{ color: '#CBD5E1' }}>
+              I'm open to full-time roles, internship opportunities, and <b>freelance projects</b>. Looking to build with teams that value distributed systems, clean architecture, and production-grade quality.
             </p>
-
-            <div className="flex gap-4 mt-6">
-              <a href="/src/imports/Kajol_Resume.pdf" target="_blank" rel="noopener noreferrer"
-                 className="px-6 py-3 rounded-xl border transition-all hover:scale-105"
-                 style={{ borderColor: '#2DD4BF', color: '#2DD4BF' }}>
-                View Resume
-              </a>
-              <a href="#contact" className="px-6 py-3 rounded-xl bg-[#2DD4BF] text-[#0B1120] transition-all hover:shadow-xl"
-                 style={{ boxShadow: '0 6px 20px rgba(45,212,191,0.12)' }}>
-                Let's Talk
-              </a>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-              <div className="highlight-card p-4 rounded-2xl border">
-                <div className="text-lg font-semibold" style={{ color: '#E2E8F0' }}>Product-led Engineering</div>
-                <div className="mt-2 text-sm" style={{ color: '#94A3B8' }}>Ship minimal, iterate with metrics.</div>
-              </div>
-              <div className="highlight-card p-4 rounded-2xl border">
-                <div className="text-lg font-semibold" style={{ color: '#E2E8F0' }}>Realtime & Resilient</div>
-                <div className="mt-2 text-sm" style={{ color: '#94A3B8' }}>Event-driven design for reliability at scale.</div>
-              </div>
-              <div className="highlight-card p-4 rounded-2xl border">
-                <div className="text-lg font-semibold" style={{ color: '#E2E8F0' }}>Observability</div>
-                <div className="mt-2 text-sm" style={{ color: '#94A3B8' }}>Metrics, tracing, and actionable alerts.</div>
-              </div>
-              <div className="highlight-card p-4 rounded-2xl border">
-                <div className="text-lg font-semibold" style={{ color: '#E2E8F0' }}>Security-first</div>
-                <div className="mt-2 text-sm" style={{ color: '#94A3B8' }}>Secure defaults and defensive coding.</div>
-              </div>
-            </div>
           </div>
-
-          {/* Right: Timeline */}
-          <div className="relative">
-            <div className="rounded-2xl border p-6" style={{ borderColor: 'rgba(255,255,255,0.06)', backgroundColor: '#0F1729' }}>
-              <div className="relative pl-8">
-                <div className="timeline-line absolute left-6 top-6 bottom-6" />
-                <div className="space-y-8">
-                  {timeline.map((t, i) => (
-                    <div key={i} className="timeline-item relative flex items-start gap-4">
-                      <div className="timeline-badge flex-shrink-0">{t.year}</div>
-                      <div>
-                        <h4 className="text-lg font-semibold" style={{ color: '#E2E8F0' }}>{t.title}</h4>
-                        <p className="mt-1 text-sm" style={{ color: '#94A3B8' }}>{t.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+          {/* Right: Stat/Status Blocks */}
+          <div className="flex flex-col gap-4 w-full max-w-xs ml-auto">
+            <div className="rounded-xl bg-[#101828] p-4 flex flex-col items-start">
+              <span className="text-2xl font-bold text-yellow-400 mb-1">500+</span>
+              <span className="text-xs tracking-widest text-slate-400">DSA PROBLEMS SOLVED</span>
+            </div>
+            <div className="rounded-xl bg-[#101828] p-4 flex flex-col items-start">
+              <span className="text-2xl font-bold text-blue-400 mb-1">6+</span>
+              <span className="text-xs tracking-widest text-slate-400">CERTIFICATES & BADGES</span>
+            </div>
+            <div className="rounded-xl bg-[#101828] p-4 flex flex-col items-end border border-[#222]">
+              <span className="text-xl font-bold text-yellow-400 mb-1">Available</span>
+              <div className="w-full flex flex-col items-start mt-2">
+                <span className="text-xs tracking-widest text-slate-400 mb-1">STATUS</span>
+                <span className="flex items-center gap-2 text-xs text-slate-300">
+                  <span className="inline-block w-2 h-2 rounded-full bg-green-400"></span>
+                  Open for full-time, internship, freelance
+                </span>
               </div>
             </div>
           </div>
@@ -303,7 +297,7 @@ export default function App() {
       {/* Projects Section */}
       <section className="min-h-screen px-6 py-20 mt-20 flex items-center justify-center">
         <div className="max-w-7xl w-full">
-          <h2 className="text-5xl mb-16" style={{ color: '#E2E8F0' }}>Featured Projects</h2>
+          <h2 className="text-5xl mb-16" style={{ color: '#E2E8F0' }}>Projects I’ve Built</h2>
           <div className="space-y-6">
             {projects.map((project, index) => (
               <div

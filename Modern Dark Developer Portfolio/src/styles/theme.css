@@ -1,3 +1,7 @@
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -198,7 +202,6 @@
     flex: 0 0 auto;
     font-size: 0.95rem;
     letter-spacing: 0.12em;
-    text-transform: uppercase;
     color: #2DD4BF;
     opacity: 0.9;
   }
