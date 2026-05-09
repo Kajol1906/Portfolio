@@ -78,6 +78,12 @@ export default function App() {
       description: 'Developed a Java JSON parser supporting datasets with 10,000+ nested nodes. Implemented schema validation and a query engine with full JUnit test coverage. Optimized tree traversal and indexing to improve parsing performance by 45%.',
       technologies: ['Java', 'JUnit', 'Schema Validation', 'Query Engine'],
       link: 'https://github.com/Kajol1906'
+    },
+    {
+      name: 'AroundMe',
+      description: 'AI-first hyperlocal alert system that uses OpenAI-powered reasoning to correlate, prioritize, and explain city alerts (traffic, weather, events, safety) based on user context. Delivers only the most relevant, deduplicated, and explainable notifications for urban awareness.',
+      technologies: ['React', 'Spring Boot', 'Java', 'MongoDB', 'OpenAI GPT-3.5/4', 'REST API', 'Vite', 'CSS Modules'],
+      link: 'https://github.com/Kajol1906/Around-me'
     }
   ];
 
@@ -249,12 +255,12 @@ export default function App() {
       </section>
 
       {/* About & Timeline Section */}
-      <section className="px-6 pt-4 pb-8 flex items-center justify-center" style={{ marginTop: '4.5rem' }}>
-        <div className="max-w-6xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-20 px-4 items-start">
+      <section className="px-6 pt-4 pb-8 flex items-center justify-center" style={{ marginTop: '0' }}>
+        <div className="max-w-6xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-8 px-4 items-start">
           {/* Left: About Me Content */}
           <div>
             <div className="mb-2 text-xs font-mono tracking-widest" style={{ color: 'rgb(45, 212, 191)' }}>// About me</div>
-            <h1 className="text-4xl font-bold mb-3" style={{ color: 'rgb(45, 212, 191)' }}>
+            <h1 className="text-4xl font-bold mb-3" style={{ color: 'rgb(45, 212, 191)', fontFamily: 'Georgia, serif' }}>
               I'm a student building systems.
             </h1>
             <h2 className="text-base font-medium mb-4" style={{ color: '#94A3B8', maxWidth: '900px' }}>
@@ -295,10 +301,10 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section className="min-h-screen px-6 py-20 mt-20 flex items-center justify-center">
+      <section className="min-h-screen px-6 py-0 flex items-center justify-center">
         <div className="max-w-7xl w-full">
-          <h2 className="text-5xl mb-16" style={{ color: '#E2E8F0' }}>Projects I’ve Built</h2>
-          <div className="space-y-6">
+          <h2 className="text-4xl mb-16" style={{ color: '#2DD4BF', fontFamily: 'Georgia, serif' }}>Projects I've Built</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
               <div
                 key={index}
@@ -345,7 +351,7 @@ export default function App() {
       </section>
 
       {/* Skills & Proficiencies Section */}
-      <section className="min-h-screen px-6 py-20 flex items-center justify-center">
+      <section className="min-h-screen px-6 py-0 flex items-center justify-center">
         <div className="max-w-7xl w-full">
           <h2 className="text-5xl text-center mb-16" style={{ color: '#E2E8F0' }}>
             Skills and Proficiencies
@@ -370,7 +376,7 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section className="min-h-screen px-6 py-20 flex items-center justify-center">
+      <section className="min-h-screen px-6 py-0 flex items-center justify-center">
         <div className="max-w-7xl w-full grid md:grid-cols-2 gap-12">
           {/* Left - Contact Info */}
           <div className="space-y-8">
