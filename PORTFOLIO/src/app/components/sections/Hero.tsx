@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <SectionWrapper id="hero" className="pt-32 pb-16 min-h-[100svh] flex flex-col justify-center">
       {/* Availability Badge */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.2 }}
@@ -34,7 +34,7 @@ export function Hero() {
       </motion.div>
 
       {/* Floating Social Links (Desktop) */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1 }}
@@ -68,7 +68,7 @@ export function Hero() {
           <TextReveal text={personal.name} delay={0.2} />
         </h1>
 
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
@@ -77,7 +77,7 @@ export function Hero() {
           I build <GradientText>scalable systems</GradientText>.
         </motion.h2>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
@@ -86,7 +86,7 @@ export function Hero() {
           {personal.bio}
         </motion.p>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.2 }}
@@ -97,7 +97,7 @@ export function Hero() {
               View Projects
             </MagneticButton>
           </a>
-          
+
           <div className="relative w-full sm:w-48">
             <div onClick={() => setIsResumeOpen(!isResumeOpen)}>
               <MagneticButton variant="grey" className="w-full">
@@ -107,19 +107,19 @@ export function Hero() {
                 </div>
               </MagneticButton>
             </div>
-            
+
             <AnimatePresence>
               {isResumeOpen && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
                   className="absolute top-full left-0 sm:left-auto sm:right-0 mt-3 w-full sm:w-48 bg-[#1a1a1a] backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-50 flex flex-col ring-1 ring-white/5"
                 >
-                  <a 
-                    href="/src/imports/KAJOL_GEHLOT-RESUME.pdf" 
-                    target="_blank" 
+                  <a
+                    href="/src/imports/KAJOL_GEHLOT-RESUME.pdf"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="px-4 py-3 text-sm text-zinc-300 hover:text-white hover:bg-white/10 transition-colors text-left flex items-center justify-between group"
                     onClick={() => setIsResumeOpen(false)}
@@ -128,9 +128,9 @@ export function Hero() {
                     <ExternalLink size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
                   </a>
                   <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                  <a 
-                    href="/src/imports/KAJOL_GEHLOT-RESUME.pdf" 
-                    download="Kajol_Gehlot_Resume.pdf" 
+                  <a
+                    href="/src/imports/KAJOL_GEHLOT-RESUME.pdf"
+                    download="Kajol_Gehlot_Resume.pdf"
                     className="px-4 py-3 text-sm text-zinc-300 hover:text-white hover:bg-white/10 transition-colors text-left flex items-center justify-between group"
                     onClick={() => setIsResumeOpen(false)}
                   >
@@ -144,7 +144,7 @@ export function Hero() {
         </motion.div>
       </div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}

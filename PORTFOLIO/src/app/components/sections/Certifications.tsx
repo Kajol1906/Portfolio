@@ -15,8 +15,8 @@ export function Certifications() {
       <div className="w-full relative">
         <div className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide">
           {certifications.map((cert, index) => (
-            <div 
-              key={`${cert.id}-${index}`} 
+            <div
+              key={`${cert.id}-${index}`}
               className="w-[300px] md:w-[350px] shrink-0 snap-center"
             >
               <div className="h-full rounded-2xl glass p-5 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-500/10">
@@ -33,7 +33,7 @@ export function Certifications() {
                   <div className="aspect-[4/3] w-full rounded-lg overflow-hidden bg-black/60 relative flex items-center justify-center">
                     {cert.image ? (
                       <ImageWithFallback
-                        src={`/src/imports/${cert.image}`}
+                        src={`/imports/${cert.image}`}
                         alt={cert.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
@@ -57,7 +57,7 @@ export function Certifications() {
           ))}
         </div>
       </div>
-      
+
       <div className="text-center mt-4 text-xs text-zinc-500 font-mono tracking-widest uppercase flex items-center justify-center gap-2">
         <span className="w-10 h-px bg-zinc-700"></span>
         Swipe or scroll to explore
