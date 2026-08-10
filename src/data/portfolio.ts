@@ -157,11 +157,51 @@ export const portfolioData = {
       type: "Badge",
       note: "Competitive Programming Achievement",
       image: "CodeChefBadge.png"
+    },
+    {
+      id: "codechef-streak",
+      title: "Bronze Streak Badge",
+      platform: "CodeChef",
+      type: "Badge",
+      note: "5 Days Coding Streak Achievement",
+      image: "CodeChefBadge (1).png"
+    },
+    {
+      id: "hackerrank-problem-solving",
+      title: "Problem Solving",
+      platform: "HackerRank",
+      type: "Badge",
+      note: "3-Star Problem Solving Badge",
+      image: "Screenshot 2026-05-19 201514.png"
+    },
+    {
+      id: "hackerrank-java-badge",
+      title: "Java Badge",
+      platform: "HackerRank",
+      type: "Badge",
+      note: "5-Star Java Programming Badge",
+      image: "Screenshot 2026-05-19 210644.png"
+    },
+    {
+      id: "leetcode-50days-2026",
+      title: "50 Days Badge 2026",
+      platform: "LeetCode",
+      type: "Badge",
+      note: "Solving Problems 50+ Days in 2026",
+      image: "download.png"
+    },
+    {
+      id: "leetcode-50days-2025",
+      title: "50 Days Badge 2025",
+      platform: "LeetCode",
+      type: "Badge",
+      note: "Solving Problems 50+ Days in 2025",
+      image: "download (1).png"
     }
   ] as Certification[],
   stats: [
     { label: "DSA Problems Solved", value: 700, plus: true },
-    { label: "Certifications & Badges", value: 6, plus: true },
+    { label: "Certifications & Badges", value: 10, plus: true },
     { label: "Projects Built", value: 5, plus: true }
   ]
 };

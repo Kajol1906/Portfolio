@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { SectionWrapper } from '../layout/SectionWrapper';
 import { TextReveal } from '../ui/TextReveal';
+import { CodeTerminal } from '../visuals/CodeTerminal';
 import { GradientText } from '../ui/GradientText';
 import { MagneticButton } from '../ui/MagneticButton';
 import { portfolioData } from '../../../data/portfolio';
-import { ChevronDown, FileText, Github, Linkedin, Mail, ExternalLink, Download } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, ExternalLink, Download } from 'lucide-react';
 
 export function Hero() {
   const { personal } = portfolioData;
@@ -40,7 +41,7 @@ export function Hero() {
         transition={{ delay: 1 }}
         className="hidden md:flex flex-col gap-4 absolute left-6 xl:left-12 top-1/2 -translate-y-1/2"
       >
-        {socialLinks.map((link, i) => (
+        {socialLinks.map((link) => (
           <a
             key={link.label}
             href={link.href}
@@ -54,93 +55,108 @@ export function Hero() {
         ))}
       </motion.div>
 
-      <div className="max-w-4xl mx-auto w-full z-10 text-center md:text-left pt-12 md:pt-0">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-indigo-400 font-mono mb-4 text-sm md:text-base tracking-wider uppercase"
-        >
-          // Hello, World. I am
-        </motion.div>
+      {/* Main content: two-column layout */}
+      <div className="max-w-6xl mx-auto w-full z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-16 pt-12 md:pt-0">
 
-        <h1 className="mb-4 leading-tight">
-          <TextReveal text={personal.name} delay={0.2} />
-        </h1>
+        {/* Left: Text Content */}
+        <div className="flex-1 text-center md:text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-indigo-400 font-mono mb-3 text-xs md:text-sm tracking-wider uppercase"
+          >
+            // Hello, World. I am
+          </motion.div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-zinc-400"
-        >
-          I build <GradientText>scalable systems</GradientText>.
-        </motion.h2>
+          <h1 className="mb-3 leading-tight text-3xl md:text-4xl lg:text-5xl font-bold">
+            <TextReveal text={personal.name} delay={0.2} />
+          </h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="max-w-2xl text-lg md:text-xl text-zinc-400 mb-10 mx-auto md:mx-0 leading-relaxed"
-        >
-          {personal.bio}
-        </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            className="text-2xl md:text-3xl lg:text-4xl font-bold mb-5 text-zinc-400"
+          >
+            I build <GradientText>scalable systems</GradientText>.
+          </motion.h2>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.2 }}
-          className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start w-full sm:w-auto"
-        >
-          <a href="#projects" className="w-full sm:w-48">
-            <MagneticButton variant="grey" className="w-full">
-              View Projects
-            </MagneticButton>
-          </a>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="max-w-xl text-sm md:text-base text-zinc-400 mb-8 mx-auto md:mx-0 leading-relaxed"
+          >
+            {personal.bio}
+          </motion.p>
 
-          <div className="relative w-full sm:w-48">
-            <div onClick={() => setIsResumeOpen(!isResumeOpen)}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.2 }}
+            className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start w-full sm:w-auto"
+          >
+            <a href="#projects" className="w-full sm:w-44">
               <MagneticButton variant="grey" className="w-full">
-                <div className="flex items-center justify-center gap-2">
-                  <span>Resume</span>
-                  <ChevronDown size={18} className={`transition-transform duration-300 ${isResumeOpen ? 'rotate-180' : ''}`} />
-                </div>
+                View Projects
               </MagneticButton>
-            </div>
+            </a>
 
-            <AnimatePresence>
-              {isResumeOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 sm:left-auto sm:right-0 mt-3 w-full sm:w-48 bg-[#1a1a1a] backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-50 flex flex-col ring-1 ring-white/5"
-                >
-                  <a
-                    href="/src/imports/KAJOL_GEHLOT-RESUME.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-3 text-sm text-zinc-300 hover:text-white hover:bg-white/10 transition-colors text-left flex items-center justify-between group"
-                    onClick={() => setIsResumeOpen(false)}
+            <div className="relative w-full sm:w-44">
+              <div onClick={() => setIsResumeOpen(!isResumeOpen)}>
+                <MagneticButton variant="grey" className="w-full">
+                  <div className="flex items-center justify-center gap-2">
+                    <span>Resume</span>
+                    <ChevronDown size={18} className={`transition-transform duration-300 ${isResumeOpen ? 'rotate-180' : ''}`} />
+                  </div>
+                </MagneticButton>
+              </div>
+
+              <AnimatePresence>
+                {isResumeOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 sm:left-auto sm:right-0 mt-3 w-full sm:w-48 bg-[#1a1a1a] backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-50 flex flex-col ring-1 ring-white/5"
                   >
-                    View Resume
-                    <ExternalLink size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                  <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                  <a
-                    href="/src/imports/KAJOL_GEHLOT-RESUME.pdf"
-                    download="Kajol_Gehlot_Resume.pdf"
-                    className="px-4 py-3 text-sm text-zinc-300 hover:text-white hover:bg-white/10 transition-colors text-left flex items-center justify-between group"
-                    onClick={() => setIsResumeOpen(false)}
-                  >
-                    Download Resume
-                    <Download size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                    <a
+                      href="/imports/KAJOL_GEHLOT-RESUME.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-3 text-sm text-zinc-300 hover:text-white hover:bg-white/10 transition-colors text-left flex items-center justify-between group"
+                      onClick={() => setIsResumeOpen(false)}
+                    >
+                      View Resume
+                      <ExternalLink size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                    <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                    <a
+                      href="/imports/KAJOL_GEHLOT-RESUME.pdf"
+                      download="Kajol_Gehlot_Resume.pdf"
+                      className="px-4 py-3 text-sm text-zinc-300 hover:text-white hover:bg-white/10 transition-colors text-left flex items-center justify-between group"
+                      onClick={() => setIsResumeOpen(false)}
+                    >
+                      Download Resume
+                      <Download size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Right: Animated Code Terminal */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          className="hidden lg:flex items-center justify-center flex-shrink-0"
+        >
+          <CodeTerminal />
         </motion.div>
       </div>
 
